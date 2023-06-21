@@ -1,4 +1,4 @@
-Read me under construction
+Read me is under construction
 
 As a start:
 If you need run this project:
