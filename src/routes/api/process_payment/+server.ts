@@ -1,10 +1,8 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import mercadopago from 'mercadopago';
+import { SECRET_ACTK } from '$env/static/private';
 
-
-mercadopago.configurations.setAccessToken(
-	'YOUR_ACCESS_TOKEN'
-);
+mercadopago.configurations.setAccessToken(SECRET_ACTK);
 
 export const POST: RequestHandler = async ({ request }) => {
 	const requestData = await request.json();

@@ -2,6 +2,7 @@
 <script lang="ts">
 	import { get } from 'svelte/store';
 	import { cartItems } from '../../cart';
+	import { PUBLIC_KEY } from '$env/static/public';
 
 	if (get(cartItems).length === 0) {
 		window.location.href = '/';
@@ -20,7 +21,7 @@
 		return id;
 	}
 
-	const mp = new MercadoPago('YOUR_PUBLIC_KEY');
+	const mp = new MercadoPago(PUBLIC_KEY);
 	const bricksBuilder = mp.bricks();
 
 	const renderCardPaymentBrick = async (bricksBuilder: bricks.Bricks) => {

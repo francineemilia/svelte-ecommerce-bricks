@@ -5,14 +5,14 @@
 	import { goto } from '$app/navigation';
 	import { savePayment } from '../../paymentData';
 	import { clearCart } from '../../cart';
+	import { PUBLIC_KEY } from '$env/static/public';
 
 	if (get(cartItems).length === 0) {
 		window.location.href = '/';
 	}
-
 	const totalAmount = get(cartItems).reduce((acc, item) => acc + item.unitPrice * item.quantity, 0);
 
-	const mp = new MercadoPago('YOUR_PUBLIC_KEY');
+	const mp = new MercadoPago(PUBLIC_KEY);
 	const bricksBuilder = mp.bricks();
 
 	const renderCardPaymentBrick = async (bricksBuilder: bricks.Bricks) => {

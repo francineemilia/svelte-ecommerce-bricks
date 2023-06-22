@@ -2,8 +2,9 @@
 <script lang="ts">
 	import { get } from 'svelte/store';
 	import { generatedPayment } from '../../paymentData';
+	import { PUBLIC_KEY } from '$env/static/public';
 
-	const mp = new MercadoPago('YOUR_PUBLIC_KEY');
+	const mp = new MercadoPago(PUBLIC_KEY);
 	const bricksBuilder = mp.bricks();
 
 	let paymentId: GeneratedPayment = get(generatedPayment);

@@ -4,6 +4,7 @@
 	import { cartItems } from '../../cart';
 
 	import ProductCard from '$lib/productCard.svelte';
+	import { PUBLIC_KEY } from '$env/static/public';
 	const products: Product[] = [
 		{
 			name: 'Coffee',
@@ -22,7 +23,7 @@
 		}
 	];
 
-	const mp = new MercadoPago('YOUR_PUBLIC_KEY');
+	const mp = new MercadoPago(PUBLIC_KEY);
 	const bricksBuilder = mp.bricks();
 
 	const renderCardPaymentBrick = async (bricksBuilder: bricks.Bricks) => {
